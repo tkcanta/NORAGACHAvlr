@@ -1,0 +1,282 @@
+/* 
+ * 野良ガチャVALORANT
+ * メインスタイルシート
+ */
+
+:root {
+    /* VALORANTのブランドカラー */
+    --main-color: #FF4655;
+    --secondary-color: #1F2326;
+    --accent-color: #0FB4EA;
+    --background-color: #ECE8E1;
+    --text-color: #1F2326;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tungsten Bold', 'Noto Sans JP', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ヘッダースタイル */
+.site-header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.site-logo {
+    max-height: 60px;
+}
+
+.site-title {
+    color: var(--main-color);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* コンテンツエリア */
+.main-content {
+    padding: 2rem 0;
+}
+
+/* エージェント選択エリア */
+.agent-selection {
+    margin: 2rem 0;
+}
+
+.role-title {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.agents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.agent-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+}
+
+.agent-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.agent-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.agent-item.selected {
+    border: 3px solid var(--main-color);
+    transform: scale(1.1);
+}
+
+.agent-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(31, 35, 38, 0.7);
+    color: var(--white);
+    text-align: center;
+    padding: 5px 0;
+    font-size: 0.8rem;
+}
+
+/* ボタンスタイル */
+.btn-valora {
+    background-color: var(--main-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-valora:hover {
+    background-color: #e63e4c;
+    color: var(--white);
+}
+
+.btn-secondary-valora {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-secondary-valora:hover {
+    background-color: #292f33;
+}
+
+/* 結果表示エリア */
+.team-composition {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.player-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.player-card.user {
+    background-color: rgba(15, 180, 234, 0.1);
+    border-left: 5px solid var(--accent-color);
+}
+
+.player-card.toxic {
+    background-color: rgba(255, 70, 85, 0.1);
+    border-left: 5px solid var(--main-color);
+}
+
+.player-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.player-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-info {
+    flex: 1;
+}
+
+.player-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.player-agent {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.toxic-phrase {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    border-radius: 15px;
+    position: relative;
+    margin-top: 1rem;
+    max-width: 80%;
+}
+
+.toxic-phrase:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: var(--main-color) transparent;
+}
+
+/* フッタースタイル */
+.site-footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-links a {
+    color: var(--white);
+    margin-right: 1rem;
+}
+
+.footer-links a:hover {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .agent-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .player-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .player-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .toxic-phrase {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .agent-item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .agent-name {
+        font-size: 0.7rem;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.sequential-fade-in > * {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.sequential-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.sequential-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.sequential-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.sequential-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.sequential-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+} 
